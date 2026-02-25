@@ -1,0 +1,11 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fireGrad" x1="0" y1="0" x2="240" y2="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFD04C"/>
+      <stop offset="55%" stop-color="#FF6E40"/>
+      <stop offset="100%" stop-color="#C30118"/>
+    </linearGradient>
+  </defs>
+  <circle cx="120" cy="120" r="118" fill="#0E1726" stroke="#0E1726" stroke-width="4"/>
+  <path d="M120 40C110 65 97 80 97 105C97 140 128 168 128 195C128 200 127 205 125 210C150 203 170 184 182 156C178 132 160 112 150 96C140 80 132 60 120 40Z" fill="url(#fireGrad)" stroke="#FFAD33" stroke-width="4"/>
+</svg>
