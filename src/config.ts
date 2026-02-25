@@ -12,6 +12,13 @@ export const siteConfig: SiteConfig = {
   language: "en",
 };
 
+const publicAsset = (relativePath: string) => {
+  const baseUrl = import.meta.env.BASE_URL ?? "/";
+  const normalizedBase = baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
+  const normalizedPath = relativePath.replace(/^\/+/, "");
+  return `${normalizedBase}${normalizedPath}`;
+};
+
 // ─── Navigation ──────────────────────────────────────────────────────────────
 
 export interface MenuLink {
@@ -48,7 +55,7 @@ export const navigationConfig: NavigationConfig = {
     { icon: "Twitter", label: "Twitter", href: "#" },
   ],
   searchPlaceholder: "Search products...",
-  menuBackgroundImage: "/images/menu-bg.jpg",
+  menuBackgroundImage: publicAsset("images/menu-bg.jpg"),
 };
 
 // ─── Hero ────────────────────────────────────────────────────────────────────
@@ -70,7 +77,7 @@ export const heroConfig: HeroConfig = {
   ctaPrimaryTarget: "#products",
   ctaSecondaryText: "",
   ctaSecondaryTarget: "",
-  backgroundImage: "/images/hero-bg.jpg",
+  backgroundImage: publicAsset("images/hero-bg.jpg"),
 };
 
 // ─── SubHero ─────────────────────────────────────────────────────────────────
@@ -101,8 +108,8 @@ export const subHeroConfig: SubHeroConfig = {
   ],
   linkText: "Learn More About Us",
   linkTarget: "#about",
-  image1: "/images/subhero-1.jpg",
-  image2: "/images/subhero-2.jpg",
+  image1: publicAsset("images/subhero-1.jpg"),
+  image2: publicAsset("images/subhero-2.jpg"),
   stats: [
     { value: 30, suffix: "+", label: "Years of Experience" },
     { value: 5000, suffix: "+", label: "Happy Customers" },
@@ -130,7 +137,7 @@ export const videoSectionConfig: VideoSectionConfig = {
   ],
   ctaText: "View All Services",
   ctaTarget: "#services",
-  backgroundImage: "/images/subhero-2.jpg",
+  backgroundImage: publicAsset("images/subhero-2.jpg"),
 };
 
 // ─── Products ────────────────────────────────────────────────────────────────
@@ -169,7 +176,7 @@ export const productsConfig: ProductsConfig = {
       name: "G.I. Pipes - Jindal/Surya", 
       price: 35, 
       category: "Pipes", 
-      image: "/images/product-pipes.jpg",
+      image: publicAsset("images/product-pipes.jpg"),
       priceLabel: "Starting ₹35/feet",
     },
     { 
@@ -177,7 +184,7 @@ export const productsConfig: ProductsConfig = {
       name: "Perforated Cable Trays", 
       price: 50, 
       category: "Cable Trays", 
-      image: "/images/product-cabletray.jpg",
+      image: publicAsset("images/product-cabletray.jpg"),
       priceLabel: "Starting ₹50/meter",
     },
     { 
@@ -185,7 +192,7 @@ export const productsConfig: ProductsConfig = {
       name: "FR/LSZH Fire Safety Wires", 
       price: 15, 
       category: "Wires & Cables", 
-      image: "/images/product-wires.jpg",
+      image: publicAsset("images/product-wires.jpg"),
       priceLabel: "Starting ₹15/meter",
     },
     { 
@@ -193,7 +200,7 @@ export const productsConfig: ProductsConfig = {
       name: "Fire Safety Equipment", 
       price: 18, 
       category: "Safety Equipment", 
-      image: "/images/product-safety.jpg",
+      image: publicAsset("images/product-safety.jpg"),
       priceLabel: "Starting ₹18/gloves",
     },
     { 
@@ -201,7 +208,7 @@ export const productsConfig: ProductsConfig = {
       name: "Electrical Conduits & Fittings",
       price: 80,
       category: "Electrical",
-      image: "/images/product-conduit.jpg",
+      image: publicAsset("images/product-conduit.jpg"),
       priceLabel: "Starting ₹80/fitting",
     },
     { 
@@ -209,7 +216,7 @@ export const productsConfig: ProductsConfig = {
       name: "Junction Boxes & Panels",
       price: 8,
       category: "Electrical",
-      image: "/images/product-junction.jpg",
+      image: publicAsset("images/product-junction.jpg"),
       priceLabel: "Starting ₹8/psc",
     },
   ],
@@ -280,21 +287,21 @@ export const blogConfig: BlogConfig = {
       id: 1,
       title: "Ravi Shah, Civil Contractor",
       date: "Verified Customer",
-      image: "/images/about-team.jpg",
+      image: publicAsset("images/about-team.jpg"),
       excerpt: "We've been sourcing G.I. pipes and fire safety materials from them for over 5 years. The quality is always top-notch, and the prices are unbeatable. Truly a reliable partner in every project!",
     },
     {
       id: 2,
       title: "Priya Builders Pvt. Ltd.",
       date: "Verified Customer",
-      image: "/images/about-legacy.jpg",
+      image: publicAsset("images/about-legacy.jpg"),
       excerpt: "What sets them apart is their honesty, timely delivery, and genuine materials. The team is knowledgeable and always helps us choose the right product for our needs.",
     },
     {
       id: 3,
       title: "S.K. Fire & Safety Solutions",
       date: "Verified Customer",
-      image: "/images/hero-bg.jpg",
+      image: publicAsset("images/hero-bg.jpg"),
       excerpt: "One of the most trusted suppliers in Mumbai! Their wide range of materials and commitment to service make them our go-to choice for every site.",
     },
   ],
@@ -378,7 +385,7 @@ export const aboutConfig: AboutConfig = {
       ],
       quote: "",
       attribution: "",
-      image: "/images/about-legacy.jpg",
+      image: publicAsset("images/about-legacy.jpg"),
       backgroundColor: "#2c2420",
       textColor: "#ffffff",
     },
@@ -388,7 +395,7 @@ export const aboutConfig: AboutConfig = {
       paragraphs: [],
       quote: "We don't just sell materials—we build relationships. Every product that leaves our warehouse carries our promise of quality, authenticity, and reliability.",
       attribution: "-- The Ajanta Hardware Team",
-      image: "/images/about-team.jpg",
+      image: publicAsset("images/about-team.jpg"),
       backgroundColor: "#8b6d4b",
       textColor: "#ffffff",
     },
@@ -444,7 +451,7 @@ export const contactConfig: ContactConfig = {
   submittingText: "Sending...",
   submittedText: "Message Sent",
   successMessage: "Thank you for reaching out! We'll get back to you within 24 hours.",
-  backgroundImage: "/images/contact-bg.jpg",
+  backgroundImage: publicAsset("images/contact-bg.jpg"),
 };
 
 // ─── Footer ──────────────────────────────────────────────────────────────────
